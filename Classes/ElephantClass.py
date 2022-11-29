@@ -84,3 +84,5 @@ class Elephant:
     def isWannaEat(self):
         if(self.__alreadyEated>=15):
             print(f"{self.__sound}, я наелся")
+        else:
+            print(f"{self.__sound}, я не наелся!")
