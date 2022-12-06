@@ -1,3 +1,4 @@
-from ElephantClass import *
+##from ElephantClass import *
 from PenguinClass import *
 from TigerClass import *
+from ClassNewElefant import *
