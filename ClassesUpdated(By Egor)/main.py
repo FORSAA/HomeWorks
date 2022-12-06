@@ -1,0 +1,1 @@
+from ImportAllClasses import * #разовый импорт всех классов
