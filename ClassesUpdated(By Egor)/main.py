@@ -28,3 +28,5 @@ else:
 
 print(MyNewElefant.biom)
 
+MyNewElefant.GoEat(foodType="Мясо", foodMass=50)
+

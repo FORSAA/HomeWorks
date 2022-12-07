@@ -68,17 +68,16 @@ class BaseAnimal:
         print(f"{self._sound}")
 
     def GoEat(self, foodType="Бананы", foodMass=10):
+        counter = 0
         for i in self._foodType:
-            counter = 0
-            counter+=1
             if(foodType == i):
                 print(f"{self._sound}, я ем {i}")
                 self._mass+=foodMass
                 self._alreadyEated+=foodMass
-            elif(counter<1):
+            elif(foodType != i and counter<1):
                 print(f"{self._sound}, я не ем {foodType}")
-            else:
-                pass
+            counter = counter + 1
+
     @property
     def isWannaEat(self):
         if(self._alreadyEated>=self._foodPerDay):
