@@ -1,6 +1,6 @@
 from ImportAllClasses import * #разовый импорт всех классов
 
-MyNewElefant = ElefantClass("Nigger")
+MyNewElefant = ElefantClass("Степан")
 
 print(MyNewElefant.animalType)
 
