@@ -1,4 +1,4 @@
-from ImportAllClasses import * #разовый импорт всех классов
+from ImportAllClasses import *  #разовый импорт всех классов
 
 MyNewElefant = ElefantClass("Степан")
 """
@@ -31,5 +31,9 @@ print(MyNewElefant.biom)
 MyNewElefant.GoEat(foodType="Мясо", foodMass=50)
 """
 
-aviary = BaseAviary(name="1")
-aviary.AddAnimalToAviary(MyNewElefant)
+A=SavannaAviary(name="1", canContainPredator=False)
+print(A.aviarySquare)
+
+
+
+A.AddAnimalToAviary(MyNewElefant)

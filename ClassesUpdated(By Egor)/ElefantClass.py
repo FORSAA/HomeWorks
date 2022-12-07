@@ -9,6 +9,7 @@ class ElefantClass(BaseAnimal):
         self._mass = 5000
         self._sound = "Siuuuu"
         self._foodPerDay = 20
+        self._isPredator = False
 
         self._isWannaEat = True
 

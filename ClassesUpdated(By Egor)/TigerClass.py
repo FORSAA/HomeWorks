@@ -8,6 +8,7 @@ class TigerClass(BaseAnimal):
         self._age = 7
         self._mass = 150
         self._sound = "Ррр-р-р"
+        self._isPredator = True
 
         self._lifeSquare = 25
 
