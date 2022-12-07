@@ -21,5 +21,10 @@ if(MyNewElefant.isPredator == False):
 else:
     print("Хищник")
 
+if(MyNewElefant.isWannaEat == False):
+    print("Не хочет есть")
+else:
+    print("Хочет есть")
+
 print(MyNewElefant.biom)
 
