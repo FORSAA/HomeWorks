@@ -3,3 +3,4 @@
 from ElefantClass import *
 from PenguinClass import *
 from TigerClass import *
+from BaseAviaryClass import *

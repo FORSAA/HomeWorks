@@ -1,9 +1,8 @@
 
-
 class BaseAviary:
 
-    def __init__(self):
-        self._aviaryName = "   "
+    def __init__(self, name):
+        self._aviaryName = name
         self._aviaryBiom = "   "
         self._aviarySquare = "   "
 
@@ -22,4 +21,5 @@ class BaseAviary:
 
 
     def AddAnimalToAviary(self, animalType):
+        print(animalType.mass)
         pass

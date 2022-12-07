@@ -1,7 +1,7 @@
 from ImportAllClasses import * #разовый импорт всех классов
 
 MyNewElefant = ElefantClass("Степан")
-
+"""
 print(MyNewElefant.animalType)
 
 print(MyNewElefant.name)
@@ -29,4 +29,7 @@ else:
 print(MyNewElefant.biom)
 
 MyNewElefant.GoEat(foodType="Мясо", foodMass=50)
+"""
 
+aviary = BaseAviary(name="1")
+aviary.AddAnimalToAviary(MyNewElefant)
