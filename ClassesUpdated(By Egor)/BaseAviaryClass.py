@@ -1,14 +1,14 @@
 
 class BaseAviary:
 
-    def __init__(self, name, cancontainpredator=False):
+    def __init__(self, name, canСontainPredator=False):
         self._aviaryName = name
         self._aviaryBiom = "   "
         self._aviarySquare = 0
         self._animalsInAviary = []
         self._animalsInAviaryInt = 0
         self._maxAnimalsInAviary = 0
-        self._canContainPredator = cancontainpredator
+        self._canContainPredator = canСontainPredator
 
         self._foodTank = 0
 
@@ -130,8 +130,7 @@ class BaseAviary:
     @property
     def AskWhoWannaEat(self):
         for i in self._animalsInAviary:
-            isAnimalWannaEat = i.isWannaEat
             if(i.isWannaEat):
-                print(f"{i.name} хочет есть(Он съел {i.alreadyEated}/{i.foodPerDay})")
+                print(f"{i.name} хочет есть(Он съел всего {i.alreadyEated}/{i.foodPerDay}, он любит {i.foodType})")
             else:
-                print(f"{i.name} не хочет есть(Он съел всего {i.alreadyEated}/{i.foodPerDay})")
+                print(f"{i.name} не хочет есть(Он съел {i.alreadyEated}/{i.foodPerDay})")

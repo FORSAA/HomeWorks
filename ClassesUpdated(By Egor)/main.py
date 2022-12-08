@@ -1,8 +1,8 @@
 from ImportAllClasses import *  #разовый импорт всех классов
 
-MyNewElefant = ElefantClass("Степан")
-MyNewElefantA = ElefantClass("Ваня")
-MyNewElefantB = ElefantClass("Кирилл")
+FirstMyNewElefant = ElefantClass("Степан")
+SecondMyNewElefant = ElefantClass("Ваня")
+ThirdMyNewElefant = ElefantClass("Кирилл")
 """
 print(MyNewElefant.animalType)
 
@@ -33,20 +33,20 @@ print(MyNewElefant.biom)
 MyNewElefant.GoEat(foodType="Мясо", foodMass=50)
 """
 
-A=SavannaAviary(name="1", canContainPredator=False)
+Aviary=SavannaAviary(name="1", canContainPredator=False)
 
-A.aviarySquare = 40
-print("Площадь вольера: ", A.aviarySquare, "m²", sep="")
+Aviary.aviarySquare = 40
+print("Площадь вольера: ", Aviary.aviarySquare, "m²", sep="")
 
 
-A.maxAnimalsInAviary = 5
+Aviary.maxAnimalsInAviary = 5
 
-A.AddAnimalToAviary(MyNewElefant)
+Aviary.AddAnimalToAviary(FirstMyNewElefant)
 
-A.AddAnimalToAviary(MyNewElefantA)
+Aviary.AddAnimalToAviary(SecondMyNewElefant)
 
-A.AddAnimalToAviary(MyNewElefantB)
+Aviary.AddAnimalToAviary(ThirdMyNewElefant)
 
-A.RemoveAnimalFromAviary(MyNewElefant)
+Aviary.RemoveAnimalFromAviary(FirstMyNewElefant)
 
-A.AnimalsDoSound()
+Aviary.AnimalsDoSound()
