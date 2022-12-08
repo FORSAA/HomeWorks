@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d016117-863c-4d91-90fd-f77faed780b8" name="Changes" comment="Modified BaseAviaryClass.py and other files">
-      <change afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ArcticAviaryClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/BaseAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/BaseAviaryClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ImportAllClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ImportAllClasses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ElefantClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ElefantClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670440607702</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Modified BaseAviaryClass.py and other files">
+      <created>1670492209849</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670492209849</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

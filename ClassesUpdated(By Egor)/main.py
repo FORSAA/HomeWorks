@@ -42,3 +42,4 @@ A.printAvailableBioms
 A.maxAnimalsInAviary = 5
 A.AddAnimalToAviary(MyNewElefant)
 A.AddAnimalToAviary(MyNewElefantA)
+A.RemoveAnimalFromAviary(MyNewElefant)
