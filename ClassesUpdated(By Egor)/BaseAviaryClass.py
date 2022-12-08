@@ -52,23 +52,24 @@ class BaseAviary:
 
 #Травоядные
     def AddAnimalToAviary(self, animalType):
+        AnimalTypesForPrint = []
+        AnimalNamesForPrint = []
+        Phrases = [f'Отлично, теперь в вольере {self._aviaryName} живут(-ёт): ', ' по имени ', ', ']
+        MainMemeoryPhrase = Phrases[0]
         if(self._canContainPredator == False):
             if(self._canContainPredator == False and animalType.isPredator == False and animalType.lifeSquare<=self._aviarySquare):
-                TypesMemoryForPrint = []
-                NamesMemoryForPrint =[]
-                counter = 0
-                animalList = len(self._animalsInAviary)
                 if(self._animalsInAviaryInt<=self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
                     for i in self._animalsInAviary:
-                        TypesMemoryForPrint.append(i.animalType)
-                        NamesMemoryForPrint.append(i.name)
-                    for counter in range(0, len(TypesMemoryForPrint)):
-                        if(len(self._animalsInAviary)>=2 and counter<=animalList-1):
-                            print(f"Отлично, теперь в вольере {self.aviaryName}: {TypesMemoryForPrint[counter]} по имени {NamesMemoryForPrint[counter]} и {TypesMemoryForPrint[counter-1]} по имени {NamesMemoryForPrint[counter-1]}")
-                        elif(len(self._animalsInAviary)<2 and animalList<2):
-                            print(f"Отлично, теперь в вольере {self.aviaryName}: {TypesMemoryForPrint[counter]} по имени {NamesMemoryForPrint[counter]}")
+                        AnimalTypesForPrint.append(i.animalType)
+                        AnimalNamesForPrint.append(i.name)
+
+                    for a in range(0, self._animalsInAviaryInt):
+                        MainMemeoryPhrase=MainMemeoryPhrase+AnimalTypesForPrint[a]+Phrases[1]+AnimalNamesForPrint[a]
+                        if(a!=self._animalsInAviaryInt-1):
+                            MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
+                    print(MainMemeoryPhrase)
                 else:
                     print(f"Вольер переполнен! {self._animalsInAviaryInt}/{self._maxAnimalsInAviary}")
             else:
@@ -77,36 +78,45 @@ class BaseAviary:
 #Хищники
         else:
             if (self._canContainPredator == True and animalType.isPredator == True and animalType.lifeSquare <= self._aviarySquare):
-                TypesMemoryForPrint = []
-                NamesMemoryForPrint = []
-                counter = 0
                 if (self._animalsInAviaryInt <= self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
                     for i in self._animalsInAviary:
-                        TypesMemoryForPrint.append(i.animalType)
-                        NamesMemoryForPrint.append(i.name)
-                    for counter in range(0, len(TypesMemoryForPrint)):
-                        print(f"Отлично, теперь в вольере {self.aviaryName}:{TypesMemoryForPrint[counter], NamesMemoryForPrint[counter]}")
+                        AnimalTypesForPrint.append(i.animalType)
+                        AnimalNamesForPrint.append(i.name)
+
+                    for a in range(0, self._animalsInAviaryInt):
+                        MainMemeoryPhrase=MainMemeoryPhrase+AnimalTypesForPrint[a]+Phrases[1]+AnimalNamesForPrint[a]
+                        if(a!=self._animalsInAviaryInt-1):
+                            MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
+                    print(MainMemeoryPhrase)
                 else:
                     print(f"Вольер переполнен! {self._animalsInAviaryInt}/{self._maxAnimalsInAviary}")
             else:
-                print(f"\nНевозможно добавить {animalType.animalType} в вольер к травоядным")
+                print(f"\nНевозможно добавить {animalType.animalType} в вольер к хищникам")
                 print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}, Нужно животному? {animalType.lifeSquare}")
 
 
     def RemoveAnimalFromAviary(self, removeableAnimalType):
         counter = 0
-        TypesMemoryForPrint = []
-        NamesMemoryForPrint = []
-        for removeableAnimalType in self._animalsInAviary:
-            if(removeableAnimalType == self._animalsInAviary[counter]):
-                try:
-                    self._animalsInAviary.remove(removeableAnimalType)
-                    print(f"\nТеперь в вольере {self.aviaryName} остались(-ся): {self._animalsInAviary[counter].animalType} по имени {self._animalsInAviary[counter].name}")
-                except ValueError:
-                    print("Животное не найдено!")
-            counter+=1
+        RemoveAnimalTypesForPrint = []
+        RemoveAnimalNamesForPrint = []
+        RemovingPhrases = [f'Отлично, теперь в вольере {self._aviaryName} остались(-ся): ', ' по имени ', ', ']
+        RemoveMainMemoryPhrase = RemovingPhrases[0]
+        SearchableName = removeableAnimalType.name
+        for i in self._animalsInAviary:
+            RemoveAnimalTypesForPrint.append(i.animalType)
+            RemoveAnimalNamesForPrint.append(i.name)
+
+        RemoveAnimalNamesForPrint.remove(removeableAnimalType.name)
+        RemoveAnimalTypesForPrint.remove(removeableAnimalType.animalType)
+
+        self._animalsInAviaryInt-=1
+        for a in range(0, self._animalsInAviaryInt):
+            RemoveMainMemoryPhrase = RemoveMainMemoryPhrase + RemoveAnimalTypesForPrint[a] + RemovingPhrases[1] + RemoveAnimalNamesForPrint[a]
+            if(a!=self._animalsInAviaryInt-1):
+                RemoveMainMemoryPhrase=RemoveMainMemoryPhrase+RemovingPhrases[2]
+        print(RemoveMainMemoryPhrase)
 
     def FeedAnimalsInAviary(self, mass):
         for i in range(0, len(self._animalsInAviary)+1):
@@ -115,4 +125,4 @@ class BaseAviary:
 
     def AnimalsDoSound(self):
         for i in self._animalsInAviary:
-            i.DoSound
+            print(f"{i.name} сказал: {i.sound}")
