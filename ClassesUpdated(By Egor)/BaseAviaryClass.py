@@ -77,7 +77,7 @@ class BaseAviary:
                 print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}, Нужно животному? {animalType.lifeSquare}")
 #Хищники
         else:
-            if (self._canContainPredator == True and animalType.isPredator == True and animalType.lifeSquare <= self._aviarySquare):
+            if (self._canContainPredator == True and animalType.isPredator == True and self._animalsInAviary[0].animalType==animalType.animalType and animalType.lifeSquare <= self._aviarySquare):
                 if (self._animalsInAviaryInt <= self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
@@ -99,30 +99,39 @@ class BaseAviary:
 
     def RemoveAnimalFromAviary(self, removeableAnimalType):
         counter = 0
-        RemoveAnimalTypesForPrint = []
-        RemoveAnimalNamesForPrint = []
+        RemovingAnimalTypesForPrint = []
+        RemovingAnimalNamesForPrint = []
         RemovingPhrases = [f'Отлично, теперь в вольере {self._aviaryName} остались(-ся): ', ' по имени ', ', ']
-        RemoveMainMemoryPhrase = RemovingPhrases[0]
+        RemovingMainMemoryPhrase = RemovingPhrases[0]
         SearchableName = removeableAnimalType.name
         for i in self._animalsInAviary:
-            RemoveAnimalTypesForPrint.append(i.animalType)
-            RemoveAnimalNamesForPrint.append(i.name)
+            RemovingAnimalTypesForPrint.append(i.animalType)
+            RemovingAnimalNamesForPrint.append(i.name)
 
-        RemoveAnimalNamesForPrint.remove(removeableAnimalType.name)
-        RemoveAnimalTypesForPrint.remove(removeableAnimalType.animalType)
+        RemovingAnimalNamesForPrint.remove(removeableAnimalType.name)
+        RemovingAnimalTypesForPrint.remove(removeableAnimalType.animalType)
 
         self._animalsInAviaryInt-=1
         for a in range(0, self._animalsInAviaryInt):
-            RemoveMainMemoryPhrase = RemoveMainMemoryPhrase + RemoveAnimalTypesForPrint[a] + RemovingPhrases[1] + RemoveAnimalNamesForPrint[a]
+            RemovingMainMemoryPhrase = RemovingMainMemoryPhrase + RemovingAnimalTypesForPrint[a] + RemovingPhrases[1] + RemovingAnimalNamesForPrint[a]
             if(a!=self._animalsInAviaryInt-1):
-                RemoveMainMemoryPhrase=RemoveMainMemoryPhrase+RemovingPhrases[2]
-        print(RemoveMainMemoryPhrase)
+                RemovingMainMemoryPhrase=RemovingMainMemoryPhrase+RemovingPhrases[2]
+        print(RemovingMainMemoryPhrase)
 
     def FeedAnimalsInAviary(self, mass):
         for i in range(0, len(self._animalsInAviary)+1):
             self._animalsInAviary[i].GoEat(foodMass=mass)
             self._foodTank-=mass
-
+    @property
     def AnimalsDoSound(self):
         for i in self._animalsInAviary:
             print(f"{i.name} сказал: {i.sound}")
+
+    @property
+    def AskWhoWannaEat(self):
+        for i in self._animalsInAviary:
+            isAnimalWannaEat = i.isWannaEat
+            if(i.isWannaEat):
+                print(f"{i.name} хочет есть(Он съел {i.alreadyEated}/{i.foodPerDay})")
+            else:
+                print(f"{i.name} не хочет есть(Он съел всего {i.alreadyEated}/{i.foodPerDay})")
