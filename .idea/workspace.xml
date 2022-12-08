@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d016117-863c-4d91-90fd-f77faed780b8" name="Changes" comment="Modified BaseAviaryClass.py and other files" />
+    <list default="true" id="3d016117-863c-4d91-90fd-f77faed780b8" name="Changes" comment="Modified BaseAviaryClass.py and other files">
+      <change afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ArcticAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/BaseAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/BaseAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ImportAllClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ImportAllClasses.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,6 +40,12 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitHub\HomeWorks\ClassesUpdated(By Egor)" />
+      <recent name="E:\GitHub\HomeWorks\ClassesUpdated(By Egor)\Directory" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="Modified AnimalBaseClass.py with GoEat method">
