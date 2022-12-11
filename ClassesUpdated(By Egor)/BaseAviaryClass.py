@@ -59,7 +59,7 @@ class BaseAviary:
         Phrases = [f'Отлично, теперь в вольере {self._aviaryName} живут(-ёт): ', ' по имени ', ', ']
         MainMemeoryPhrase = Phrases[0]
         if(self._canContainPredator == False):
-            if(self._canContainPredator == False and animalType.isPredator == False and animalType.lifeSquare<=self._aviarySquare):
+            if(self._canContainPredator == False and animalType.isPredator == False and animalType.lifeSquare <= self._aviarySquare):
                 if(self._animalsInAviaryInt<=self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1

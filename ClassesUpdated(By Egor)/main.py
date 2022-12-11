@@ -52,4 +52,5 @@ print("\n")
 Aviary.AddAnimalToAviary(FirstMyNewTiger)
 print("\n")
 Aviary.AskWhoWannaEat
-
+Aviary.FeedAnimalsInAviary(20)
+Aviary.AskWhoWannaEat

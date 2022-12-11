@@ -16,3 +16,14 @@ class PenguinClass(BaseAnimal):
         self._foodType = ["Рыба", "Мясо"]
 
         self._biom = "Арктика"
+
+    def GoEat(self, foodType="Рыба", foodMass=10):
+        counter = 0
+        for i in self._foodType:
+            if(foodType == i):
+                print(f"{self._sound}, я ем {i}")
+                self._mass+=foodMass
+                self._alreadyEated+=foodMass
+            elif(foodType != i and counter<1):
+                print(f"{self._sound}, я не ем {foodType}")
+            counter = counter + 1
