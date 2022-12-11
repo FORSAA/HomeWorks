@@ -56,7 +56,7 @@ class BaseAviary:
 
 #Травоядные
     def AddAnimalToAviary(self, animalType):
-        Phrases = [f'Отлично, теперь в вольере {self._aviaryName} живут(-ёт): ', ' по имени ', ', ']
+        Phrases = [f'Отлично, теперь в вольере {self._aviaryName} живут(-ёт): ', ' по имени ', ', ', '.']
         MainMemeoryPhrase = Phrases[0]
         if(self._canContainPredator == False):
             if(self._canContainPredator == False and animalType.isPredator == False and animalType.lifeSquare <= self._aviarySquare):
@@ -72,18 +72,21 @@ class BaseAviary:
                         MainMemeoryPhrase=MainMemeoryPhrase+self._animalTypesInAviaryForPrint[Counter]+Phrases[1]+self._animalNamesInAviaryForPrint[Counter]
                         if(Counter!=self._animalsInAviaryInt-1):
                             MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
+                        elif(Counter==self._animalsInAviaryInt-1):
+                            MainMemeoryPhrase=MainMemeoryPhrase+Phrases[3]
                     print(MainMemeoryPhrase)
                 else:
                     print(f"Вольер {self._aviaryName} переполнен! {self._animalsInAviaryInt}/{self._maxAnimalsInAviary}")
             else:
                 print(f"\nНевозможно добавить {animalType.animalType} в вольер к травоядным")
-                print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}, Нужно животному? {animalType.lifeSquare}")
+                print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}m², Нужно животному? {animalType.lifeSquare}m²")
 #Хищники
         else:
             if (self._canContainPredator == True and animalType.isPredator == True and animalType.lifeSquare <= self._aviarySquare):
                 if (self._animalsInAviaryInt <= self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
+
                     for iterator in self._animalsInAviary:
                         self._animalTypesInAviaryForPrint.append(iterator.animalType)
                         self._animalNamesInAviaryForPrint.append(iterator.name)
@@ -92,17 +95,18 @@ class BaseAviary:
                         MainMemeoryPhrase=MainMemeoryPhrase+self._animalTypesInAviaryForPrint[Counter]+Phrases[1]+self._animalNamesInAviaryForPrint[Counter]
                         if(Counter!=self._animalsInAviaryInt-1):
                             MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
+                        elif(Counter==self._animalsInAviaryInt-1):
+                            MainMemeoryPhrase=MainMemeoryPhrase+Phrases[3]
                     print(MainMemeoryPhrase)
                 else:
                     print(f"Вольер {self._aviaryName} переполнен! {self._animalsInAviaryInt}/{self._maxAnimalsInAviary}")
-
             else:
                 print(f"\nНевозможно добавить {animalType.animalType} в вольер к хищникам")
-                print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}, Нужно животному? {animalType.lifeSquare}")
+                print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}m², Нужно животному? {animalType.lifeSquare}m²")
 
 
     def RemoveAnimalFromAviary(self, removeableAnimalType):
-        RemovingPhrases = [f'Отлично, теперь в вольере {self._aviaryName} остались(-ся): ', ' по имени ', ', ']
+        RemovingPhrases = [f'Отлично, теперь в вольере {self._aviaryName} остались(-ся): ', ' по имени ', ', ', '.']
         RemovingMainMemoryPhrase = RemovingPhrases[0]
 
         self._animalNamesInAviaryForPrint.remove(removeableAnimalType.name)
@@ -113,6 +117,8 @@ class BaseAviary:
             RemovingMainMemoryPhrase = RemovingMainMemoryPhrase+self._animalTypesInAviaryForPrint[Counter]+RemovingPhrases[1]+self._animalNamesInAviaryForPrint[Counter]
             if(Counter!=self._animalsInAviaryInt-1):
                 RemovingMainMemoryPhrase=RemovingMainMemoryPhrase+RemovingPhrases[2]
+            elif (Counter == self._animalsInAviaryInt-1):
+                MainMemeoryPhrase = MainMemeoryPhrase + RemovingPhrases[3]
         print(RemovingMainMemoryPhrase)
 
     def FeedAnimalsInAviary(self, mass=20):
