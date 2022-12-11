@@ -1,14 +1,14 @@
 
 class BaseAviary:
 
-    def __init__(self, name, canСontainPredator=False):
+    def __init__(self, name, canContainPredator=False):
         self._aviaryName = name
         self._aviaryBiom = "   "
         self._aviarySquare = 0
         self._animalsInAviary = []
         self._animalsInAviaryInt = 0
         self._maxAnimalsInAviary = 0
-        self._canContainPredator = canСontainPredator
+        self._canContainPredator = canContainPredator
 
         self._foodTank = 0
 
@@ -61,6 +61,7 @@ class BaseAviary:
                 if(self._animalsInAviaryInt<=self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
+
                     for iterator in self._animalsInAviary:
                         AnimalTypesForPrint.append(iterator.animalType)
                         AnimalNamesForPrint.append(iterator.name)
@@ -98,28 +99,28 @@ class BaseAviary:
 
 
     def RemoveAnimalFromAviary(self, removeableAnimalType):
-        RemovingAnimalTypesForPrint = []
-        RemovingAnimalNamesForPrint = []
+        AnimalTypesForPrint = []
+        AnimalNamesForPrint = []
         RemovingPhrases = [f'Отлично, теперь в вольере {self._aviaryName} остались(-ся): ', ' по имени ', ', ']
         RemovingMainMemoryPhrase = RemovingPhrases[0]
-        SearchableName = removeableAnimalType.name
-        for i in self._animalsInAviary:
-            RemovingAnimalTypesForPrint.append(i.animalType)
-            RemovingAnimalNamesForPrint.append(i.name)
 
-        RemovingAnimalNamesForPrint.remove(removeableAnimalType.name)
-        RemovingAnimalTypesForPrint.remove(removeableAnimalType.animalType)
+        for iterator in self._animalsInAviary:
+            AnimalTypesForPrint.append(iterator.animalType)
+            AnimalNamesForPrint.append(iterator.name)
+
+        AnimalNamesForPrint.remove(removeableAnimalType.name)
+        AnimalTypesForPrint.remove(removeableAnimalType.animalType)
 
         self._animalsInAviaryInt-=1
         for a in range(0, self._animalsInAviaryInt):
-            RemovingMainMemoryPhrase = RemovingMainMemoryPhrase + RemovingAnimalTypesForPrint[a] + RemovingPhrases[1] + RemovingAnimalNamesForPrint[a]
+            RemovingMainMemoryPhrase = RemovingMainMemoryPhrase + AnimalTypesForPrint[a] + RemovingPhrases[1] + AnimalNamesForPrint[a]
             if(a!=self._animalsInAviaryInt-1):
                 RemovingMainMemoryPhrase=RemovingMainMemoryPhrase+RemovingPhrases[2]
         print(RemovingMainMemoryPhrase)
 
-    def FeedAnimalsInAviary(self, mass):
-        for i in range(0, len(self._animalsInAviary)+1):
-            self._animalsInAviary[i].GoEat(foodMass=mass)
+    def FeedAnimalsInAviary(self, mass=20):
+        for i in self._animalsInAviary:
+            i.GoEat(foodMass=mass)
             self._foodTank-=mass
 
     def AnimalsDoSound(self):
