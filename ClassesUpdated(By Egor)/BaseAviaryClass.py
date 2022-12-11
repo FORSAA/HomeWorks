@@ -61,13 +61,13 @@ class BaseAviary:
                 if(self._animalsInAviaryInt<=self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
-                    for i in self._animalsInAviary:
-                        AnimalTypesForPrint.append(i.animalType)
-                        AnimalNamesForPrint.append(i.name)
+                    for iterator in self._animalsInAviary:
+                        AnimalTypesForPrint.append(iterator.animalType)
+                        AnimalNamesForPrint.append(iterator.name)
 
-                    for a in range(0, self._animalsInAviaryInt):
-                        MainMemeoryPhrase=MainMemeoryPhrase+AnimalTypesForPrint[a]+Phrases[1]+AnimalNamesForPrint[a]
-                        if(a!=self._animalsInAviaryInt-1):
+                    for Counter in range(0, self._animalsInAviaryInt):
+                        MainMemeoryPhrase=MainMemeoryPhrase+AnimalTypesForPrint[Counter]+Phrases[1]+AnimalNamesForPrint[Counter]
+                        if(Counter!=self._animalsInAviaryInt-1):
                             MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
                     print(MainMemeoryPhrase)
                 else:
@@ -81,13 +81,13 @@ class BaseAviary:
                 if (self._animalsInAviaryInt <= self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
-                    for i in self._animalsInAviary:
-                        AnimalTypesForPrint.append(i.animalType)
-                        AnimalNamesForPrint.append(i.name)
+                    for iterator in self._animalsInAviary:
+                        AnimalTypesForPrint.append(iterator.animalType)
+                        AnimalNamesForPrint.append(iterator.name)
 
-                    for a in range(0, self._animalsInAviaryInt):
-                        MainMemeoryPhrase=MainMemeoryPhrase+AnimalTypesForPrint[a]+Phrases[1]+AnimalNamesForPrint[a]
-                        if(a!=self._animalsInAviaryInt-1):
+                    for Counter in range(0, self._animalsInAviaryInt):
+                        MainMemeoryPhrase=MainMemeoryPhrase+AnimalTypesForPrint[Counter]+Phrases[1]+AnimalNamesForPrint[Counter]
+                        if(Counter!=self._animalsInAviaryInt-1):
                             MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
                     print(MainMemeoryPhrase)
                 else:
@@ -98,7 +98,6 @@ class BaseAviary:
 
 
     def RemoveAnimalFromAviary(self, removeableAnimalType):
-        counter = 0
         RemovingAnimalTypesForPrint = []
         RemovingAnimalNamesForPrint = []
         RemovingPhrases = [f'Отлично, теперь в вольере {self._aviaryName} остались(-ся): ', ' по имени ', ', ']
