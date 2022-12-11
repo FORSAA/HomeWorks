@@ -3,35 +3,35 @@ from ImportAllClasses import *  #разовый импорт всех класс
 FirstMyNewElefant = ElefantClass("Степан")
 SecondMyNewElefant = ElefantClass("Ваня")
 ThirdMyNewElefant = ElefantClass("Кирилл")
-"""
-print(MyNewElefant.animalType)
 
-print(MyNewElefant.name)
+print(FirstMyNewElefant.animalType)
 
-print(MyNewElefant.age)
+print(FirstMyNewElefant.name)
 
-print(MyNewElefant.mass)
+print(FirstMyNewElefant.age, "лет")
 
-print(MyNewElefant.sound)
+print(FirstMyNewElefant.mass, "кг", sep='')
 
-print(MyNewElefant.lifeSquare)
+print(FirstMyNewElefant.sound)
 
-print(MyNewElefant.foodType)
+print(FirstMyNewElefant.lifeSquare, "m²")
 
-if(MyNewElefant.isPredator == False):
+print(FirstMyNewElefant.foodType)
+
+if(FirstMyNewElefant.isPredator == False):
     print("Не хищник")
 else:
     print("Хищник")
 
-if(MyNewElefant.isWannaEat == False):
+if(FirstMyNewElefant.isWannaEat == False):
     print("Не хочет есть")
 else:
     print("Хочет есть")
 
-print(MyNewElefant.biom)
+print(FirstMyNewElefant.biom)
 
-MyNewElefant.GoEat(foodType="Мясо", foodMass=50)
-"""
+FirstMyNewElefant.GoEat(foodType="Мясо", foodMass=50)
+print("\n")
 
 Aviary=SavannaAviary(name="1", canContainPredator=False)
 
