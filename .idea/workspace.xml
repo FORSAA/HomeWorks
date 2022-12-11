@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d016117-863c-4d91-90fd-f77faed780b8" name="Changes" comment="Work have done">
+    <list default="true" id="3d016117-863c-4d91-90fd-f77faed780b8" name="Changes" comment="Renamed variables">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AnimalBaseClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AnimalBaseClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/BaseAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/BaseAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670521765475</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Renamed variables">
+      <created>1670747685911</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670747685911</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -142,6 +151,7 @@
     <MESSAGE value="Modified BaseAviaryClass.py and other files" />
     <MESSAGE value="Modified BaseAviaryClass.py(Added word constructor) and other files" />
     <MESSAGE value="Work have done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Work have done" />
+    <MESSAGE value="Renamed variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed variables" />
   </component>
 </project>

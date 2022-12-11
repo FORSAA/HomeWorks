@@ -16,7 +16,7 @@ class BaseAviary:
 
 #Getters
     @property
-    def printAvailableBioms(self):
+    def PrintAvailableBioms(self):
         print("\nДоступные биомы вольера:")
         for i in self._availableBioms:
             print(f"{i}")
@@ -71,7 +71,7 @@ class BaseAviary:
                             MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
                     print(MainMemeoryPhrase)
                 else:
-                    print(f"Вольер переполнен! {self._animalsInAviaryInt}/{self._maxAnimalsInAviary}")
+                    print(f"Вольер {self._aviaryName} переполнен! {self._animalsInAviaryInt}/{self._maxAnimalsInAviary}")
             else:
                 print(f"\nНевозможно добавить {animalType.animalType} в вольер к травоядным")
                 print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}, Нужно животному? {animalType.lifeSquare}")
@@ -91,7 +91,7 @@ class BaseAviary:
                             MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
                     print(MainMemeoryPhrase)
                 else:
-                    print(f"Вольер переполнен! {self._animalsInAviaryInt}/{self._maxAnimalsInAviary}")
+                    print(f"Вольер {self._aviaryName} переполнен! {self._animalsInAviaryInt}/{self._maxAnimalsInAviary}")
             else:
                 print(f"\nНевозможно добавить {animalType.animalType} в вольер к хищникам")
                 print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}, Нужно животному? {animalType.lifeSquare}")
@@ -121,15 +121,16 @@ class BaseAviary:
         for i in range(0, len(self._animalsInAviary)+1):
             self._animalsInAviary[i].GoEat(foodMass=mass)
             self._foodTank-=mass
-    @property
+
     def AnimalsDoSound(self):
         for i in self._animalsInAviary:
             print(f"{i.name} сказал: {i.sound}")
 
+
     @property
     def AskWhoWannaEat(self):
-        for i in self._animalsInAviary:
-            if(i.isWannaEat):
-                print(f"{i.name} хочет есть(Он съел всего {i.alreadyEated}/{i.foodPerDay}, он любит {i.foodType})")
+        for iterator in self._animalsInAviary:
+            if(iterator.isWannaEat):
+                print(f"{iterator.name} хочет есть(Он съел всего {iterator.alreadyEated}/{iterator.foodPerDay}, он любит {iterator.foodType})")
             else:
-                print(f"{i.name} не хочет есть(Он съел {i.alreadyEated}/{i.foodPerDay})")
+                print(f"{iterator.name} не хочет есть(Он съел {iterator.alreadyEated}/{iterator.foodPerDay})")

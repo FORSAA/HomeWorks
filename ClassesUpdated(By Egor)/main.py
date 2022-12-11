@@ -37,16 +37,16 @@ Aviary=SavannaAviary(name="1", canContainPredator=False)
 
 Aviary.aviarySquare = 40
 print("Площадь вольера: ", Aviary.aviarySquare, "m²", sep="")
-
-
+print("\n")
 Aviary.maxAnimalsInAviary = 5
 
 Aviary.AddAnimalToAviary(FirstMyNewElefant)
-
+print("\n")
 Aviary.AddAnimalToAviary(SecondMyNewElefant)
-
+print("\n")
 Aviary.AddAnimalToAviary(ThirdMyNewElefant)
-
+print("\n")
 Aviary.RemoveAnimalFromAviary(FirstMyNewElefant)
+print("\n")
+Aviary.AskWhoWannaEat
 
-Aviary.AnimalsDoSound()

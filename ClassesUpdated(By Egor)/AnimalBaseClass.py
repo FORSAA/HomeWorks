@@ -57,6 +57,11 @@ class BaseAnimal:
     def isPredator(self):
         return self._isPredator
 
+    @property
+    def foodPerDay(self):
+        return self._foodPerDay
+
+
     """SETTERS"""
     @age.setter
     def age(self, age):
@@ -81,6 +86,6 @@ class BaseAnimal:
     @property
     def isWannaEat(self):
         if(self._alreadyEated>=self._foodPerDay):
-            return(True)
-        else:
             return(False)
+        else:
+            return(True)
