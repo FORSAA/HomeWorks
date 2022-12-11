@@ -4,6 +4,8 @@ FirstMyNewElefant = ElefantClass("Степан")
 SecondMyNewElefant = ElefantClass("Ваня")
 ThirdMyNewElefant = ElefantClass("Кирилл")
 
+FirstMyNewTiger = TigerClass("Алексей")
+
 print(FirstMyNewElefant.animalType)
 
 print(FirstMyNewElefant.name)
@@ -33,7 +35,7 @@ print(FirstMyNewElefant.biom)
 FirstMyNewElefant.GoEat(foodType="Мясо", foodMass=50)
 print("\n")
 
-Aviary=SavannaAviary(name="1", canContainPredator=False)
+Aviary=SavannaAviary(name="1", canContainPredator=True)
 
 Aviary.aviarySquare = 40
 print("Площадь вольера: ", Aviary.aviarySquare, "m²", sep="")
@@ -46,7 +48,8 @@ Aviary.AddAnimalToAviary(SecondMyNewElefant)
 print("\n")
 Aviary.AddAnimalToAviary(ThirdMyNewElefant)
 print("\n")
-Aviary.RemoveAnimalFromAviary(FirstMyNewElefant)
+
+Aviary.AddAnimalToAviary(FirstMyNewTiger)
 print("\n")
 Aviary.AskWhoWannaEat
 

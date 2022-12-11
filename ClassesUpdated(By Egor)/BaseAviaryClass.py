@@ -80,7 +80,7 @@ class BaseAviary:
                 print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}, Нужно животному? {animalType.lifeSquare}")
 #Хищники
         else:
-            if (self._canContainPredator == True and animalType.isPredator == True and self._animalsInAviary[0].animalType==animalType.animalType and animalType.lifeSquare <= self._aviarySquare):
+            if (self._canContainPredator == True and animalType.isPredator == True and animalType.lifeSquare <= self._aviarySquare):
                 if (self._animalsInAviaryInt <= self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
@@ -95,6 +95,7 @@ class BaseAviary:
                     print(MainMemeoryPhrase)
                 else:
                     print(f"Вольер {self._aviaryName} переполнен! {self._animalsInAviaryInt}/{self._maxAnimalsInAviary}")
+
             else:
                 print(f"\nНевозможно добавить {animalType.animalType} в вольер к хищникам")
                 print(f"1. Может содержать хищников? {self._canContainPredator}, Ваше животное хищник? {animalType.isPredator}.\n2. Размеры вольера? {self._aviarySquare}, Нужно животному? {animalType.lifeSquare}")

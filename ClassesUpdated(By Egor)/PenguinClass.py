@@ -8,6 +8,7 @@ class PenguinClass(BaseAnimal):
         self._age = 4
         self._mass = 70
         self._sound = "Пи-пи-пи"
+        self._foodPerDay = 3
         self._isPredator = False
 
         self._lifeSquare = 15
