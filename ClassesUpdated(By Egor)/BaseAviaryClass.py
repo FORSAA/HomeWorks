@@ -14,6 +14,10 @@ class BaseAviary:
 
         self._availableBioms = ["Саванна", "Арктика"]
 
+        self._animalTypesInAviaryForPrint = []
+        self._animalNamesInAviaryForPrint = []
+
+
 #Getters
     @property
     def PrintAvailableBioms(self):
@@ -52,8 +56,6 @@ class BaseAviary:
 
 #Травоядные
     def AddAnimalToAviary(self, animalType):
-        AnimalTypesForPrint = []
-        AnimalNamesForPrint = []
         Phrases = [f'Отлично, теперь в вольере {self._aviaryName} живут(-ёт): ', ' по имени ', ', ']
         MainMemeoryPhrase = Phrases[0]
         if(self._canContainPredator == False):
@@ -63,11 +65,11 @@ class BaseAviary:
                     self._animalsInAviaryInt+=1
 
                     for iterator in self._animalsInAviary:
-                        AnimalTypesForPrint.append(iterator.animalType)
-                        AnimalNamesForPrint.append(iterator.name)
+                        self._animalTypesInAviaryForPrint.append(iterator.animalType)
+                        self._animalNamesInAviaryForPrint.append(iterator.name)
 
                     for Counter in range(0, self._animalsInAviaryInt):
-                        MainMemeoryPhrase=MainMemeoryPhrase+AnimalTypesForPrint[Counter]+Phrases[1]+AnimalNamesForPrint[Counter]
+                        MainMemeoryPhrase=MainMemeoryPhrase+self._animalTypesInAviaryForPrint[Counter]+Phrases[1]+self._animalNamesInAviaryForPrint[Counter]
                         if(Counter!=self._animalsInAviaryInt-1):
                             MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
                     print(MainMemeoryPhrase)
@@ -83,11 +85,11 @@ class BaseAviary:
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
                     for iterator in self._animalsInAviary:
-                        AnimalTypesForPrint.append(iterator.animalType)
-                        AnimalNamesForPrint.append(iterator.name)
+                        self._animalTypesInAviaryForPrint.append(iterator.animalType)
+                        self._animalNamesInAviaryForPrint.append(iterator.name)
 
                     for Counter in range(0, self._animalsInAviaryInt):
-                        MainMemeoryPhrase=MainMemeoryPhrase+AnimalTypesForPrint[Counter]+Phrases[1]+AnimalNamesForPrint[Counter]
+                        MainMemeoryPhrase=MainMemeoryPhrase+self._animalTypesInAviaryForPrint[Counter]+Phrases[1]+self._animalNamesInAviaryForPrint[Counter]
                         if(Counter!=self._animalsInAviaryInt-1):
                             MainMemeoryPhrase=MainMemeoryPhrase+Phrases[2]
                     print(MainMemeoryPhrase)
@@ -99,22 +101,16 @@ class BaseAviary:
 
 
     def RemoveAnimalFromAviary(self, removeableAnimalType):
-        AnimalTypesForPrint = []
-        AnimalNamesForPrint = []
         RemovingPhrases = [f'Отлично, теперь в вольере {self._aviaryName} остались(-ся): ', ' по имени ', ', ']
         RemovingMainMemoryPhrase = RemovingPhrases[0]
 
-        for iterator in self._animalsInAviary:
-            AnimalTypesForPrint.append(iterator.animalType)
-            AnimalNamesForPrint.append(iterator.name)
-
-        AnimalNamesForPrint.remove(removeableAnimalType.name)
-        AnimalTypesForPrint.remove(removeableAnimalType.animalType)
+        self._animalNamesInAviaryForPrint.remove(removeableAnimalType.name)
+        self._animalTypesInAviaryForPrint.remove(removeableAnimalType.animalType)
 
         self._animalsInAviaryInt-=1
-        for a in range(0, self._animalsInAviaryInt):
-            RemovingMainMemoryPhrase = RemovingMainMemoryPhrase + AnimalTypesForPrint[a] + RemovingPhrases[1] + AnimalNamesForPrint[a]
-            if(a!=self._animalsInAviaryInt-1):
+        for Counter in range(0, self._animalsInAviaryInt):
+            RemovingMainMemoryPhrase = RemovingMainMemoryPhrase+self._animalTypesInAviaryForPrint[Counter]+RemovingPhrases[1]+self._animalNamesInAviaryForPrint[Counter]
+            if(Counter!=self._animalsInAviaryInt-1):
                 RemovingMainMemoryPhrase=RemovingMainMemoryPhrase+RemovingPhrases[2]
         print(RemovingMainMemoryPhrase)
 
