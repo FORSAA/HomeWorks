@@ -44,6 +44,14 @@ class BaseAviary:
     def maxAnimalsInAviary(self):
         return self._maxAnimalsInAviary
 
+    @property
+    def animalTypesInAviaryForPrint(self):
+        return self._animalTypesInAviaryForPrint
+
+    @property
+    def animalNamesInAviaryForPrint(self):
+        return self._animalNamesInAviaryForPrint
+
     @aviarySquare.setter
     def aviarySquare(self, aviarySquare):
         if(aviarySquare>0 and aviarySquare<=50):
@@ -53,6 +61,8 @@ class BaseAviary:
     def maxAnimalsInAviary(self, maxAnimalsInAviary):
         if(maxAnimalsInAviary<=5 and maxAnimalsInAviary>0):
             self._maxAnimalsInAviary = maxAnimalsInAviary
+
+
 
 #Травоядные
     def AddAnimalToAviary(self, animalType):
