@@ -9,16 +9,10 @@ class BaseAviary:
         self._animalsInAviaryInt = 0
         self._maxAnimalsInAviary = 0
         self._canContainPredator = canContainPredator
-
         self._foodTank = 0
-
         self._availableBioms = ["Саванна", "Арктика"]
-
         self._animalTypesInAviaryForPrint = []
         self._animalNamesInAviaryForPrint = []
-
-
-#Getters
     @property
     def PrintAvailableBioms(self):
         print("\nДоступные биомы вольера:")
@@ -27,43 +21,32 @@ class BaseAviary:
     @property
     def aviaryName(self):
         return self._aviaryName
-
     @property
     def aviaryBiom(self):
         return self._aviaryBiom
-
     @property
     def aviarySquare(self):
         return self._aviarySquare
-
-    @property
-    def animalsInAviary(self):
-        return self._animalsInAviary
-
-    @property
-    def maxAnimalsInAviary(self):
-        return self._maxAnimalsInAviary
-
-    @property
-    def animalTypesInAviaryForPrint(self):
-        return self._animalTypesInAviaryForPrint
-
-    @property
-    def animalNamesInAviaryForPrint(self):
-        return self._animalNamesInAviaryForPrint
-
     @aviarySquare.setter
     def aviarySquare(self, aviarySquare):
         if(aviarySquare>0 and aviarySquare<=50):
             self._aviarySquare = aviarySquare
-
+    @property
+    def animalsInAviary(self):
+        return self._animalsInAviary
+    @property
+    def maxAnimalsInAviary(self):
+        return self._maxAnimalsInAviary
     @maxAnimalsInAviary.setter
     def maxAnimalsInAviary(self, maxAnimalsInAviary):
         if(maxAnimalsInAviary<=5 and maxAnimalsInAviary>0):
             self._maxAnimalsInAviary = maxAnimalsInAviary
-
-
-
+    @property
+    def animalTypesInAviaryForPrint(self):
+        return self._animalTypesInAviaryForPrint
+    @property
+    def animalNamesInAviaryForPrint(self):
+        return self._animalNamesInAviaryForPrint
 #Травоядные
     def AddAnimalToAviary(self, animalType):
         Phrases = [f'Отлично, теперь в вольере {self._aviaryName} живут(-ёт): ', ' по имени ', ', ', '.']
@@ -128,7 +111,7 @@ class BaseAviary:
             if(Counter!=self._animalsInAviaryInt-1):
                 RemovingMainMemoryPhrase=RemovingMainMemoryPhrase+RemovingPhrases[2]
             elif (Counter == self._animalsInAviaryInt-1):
-                RemovingMainMemoryPhrase = RemovingMainMemoryPhrase + RemovingPhrases[3]
+                RemovingMainMemoryPhrase = RemovingMainMemoryPhrase+RemovingPhrases[3]
         print(RemovingMainMemoryPhrase)
 
     def FeedAnimalsInAviary(self, mass=20):

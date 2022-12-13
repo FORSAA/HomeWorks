@@ -1,4 +1,4 @@
-from BaseAviaryClass import *
+from AviaryClasses.BaseAviaryClass import *
 
 class ArcticAviary(BaseAviary):
 
