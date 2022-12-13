@@ -70,7 +70,7 @@ class BaseAviary:
         MainMemeoryPhrase = Phrases[0]
         if(self._canContainPredator == False):
             if(self._canContainPredator == False and animalType.isPredator == False and animalType.lifeSquare <= self._aviarySquare):
-                if(self._animalsInAviaryInt<=self._maxAnimalsInAviary):
+                if(self._animalsInAviaryInt<self._maxAnimalsInAviary):
                     self._animalsInAviary.append(animalType)
                     self._animalsInAviaryInt+=1
 
@@ -128,7 +128,7 @@ class BaseAviary:
             if(Counter!=self._animalsInAviaryInt-1):
                 RemovingMainMemoryPhrase=RemovingMainMemoryPhrase+RemovingPhrases[2]
             elif (Counter == self._animalsInAviaryInt-1):
-                MainMemeoryPhrase = MainMemeoryPhrase + RemovingPhrases[3]
+                RemovingMainMemoryPhrase = RemovingMainMemoryPhrase + RemovingPhrases[3]
         print(RemovingMainMemoryPhrase)
 
     def FeedAnimalsInAviary(self, mass=20):
