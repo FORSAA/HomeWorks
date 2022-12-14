@@ -11,10 +11,18 @@ class BaseAviary:
         self._maxAnimalsInAviary = 0
         self._animalTypesInAviaryForPrint = []
         self._animalNamesInAviaryForPrint = []
+        print(f"Вольер с именем {AviaryName} был успешно создан.")
 
     @property
     def aviaryName(self):
         return self._aviaryName
+    @property
+    def foodTank(self):
+        return self._foodTank
+    @foodTank.setter
+    def foodTank(self, foodTank):
+        if(foodTank<=400 and foodTank>0):
+            self._foodTank = foodTank
     @property
     def biom(self):
         return self._biom
@@ -42,14 +50,13 @@ class BaseAviary:
     def animalNamesInAviaryForPrint(self):
         return self._animalNamesInAviaryForPrint
 
-    def _printWhenAddingError(self, animalType):
+    def _PrintWhenAddingError(self, animalType):
         return(f"Животное {animalType.animalType} не было добавлено.\n1.Подходит ли сосед? {self._IsTheNeighborRight(animalType)}\n2.Подходит ли биом? {self._IsAvailableBiom(animalType)} ({self._biom}/{animalType.biom})\n3.Хватает ли площади? {self._IsAvailableSquare(animalType)} ({animalType.lifeSquare}/{self._square})")
     def _IsTheNeighborRight(self, animalType):
-        if(self._animalsInAviary[0].isPredator==animalType.isPredator and self._animalsInAviary[0].animalType==animalType.animalType):
+        if(animalType.isPredator and self._animalsInAviary[0].animalType==animalType.animalType):
             return True
-        elif(animalType.isPredator==False):
-            if(animalType.animalType!=animalType.animalType or animalType.animalType==animalType.animalType):
-                return True
+        elif(animalType.isPredator!=self._animalsInAviary[0].isPredator):
+            return False
         else:
             return False
 
@@ -68,6 +75,8 @@ class BaseAviary:
     def _PrintWhenAdded(self):
         Phrases = [f'Отлично, теперь в вольере {self._aviaryName} живут(-ёт): ', ' по имени ', ', ', '.']
         MainMemeoryPhrase = Phrases[0]
+        self._animalNamesInAviaryForPrint = []
+        self._animalTypesInAviaryForPrint = []
 
         for iterator in self._animalsInAviary:
             self._animalTypesInAviaryForPrint.append(iterator.animalType)
@@ -84,6 +93,13 @@ class BaseAviary:
     def _PrintWhenRemoved(self):
         RemovingPhrases = [f'Отлично, теперь в вольере {self._aviaryName} остались(-ся): ', ' по имени ', ', ', '.']
         RemovingMainMemoryPhrase = RemovingPhrases[0]
+        self._animalNamesInAviaryForPrint = []
+        self._animalTypesInAviaryForPrint = []
+
+        for iterator in self._animalsInAviary:
+            self._animalTypesInAviaryForPrint.append(iterator.animalType)
+            self._animalNamesInAviaryForPrint.append(iterator.name)
+
         if(len(self._animalTypesInAviaryForPrint)>0):
             for Counter in range(0, self._animalsInAviaryInt):
                 RemovingMainMemoryPhrase = RemovingMainMemoryPhrase+self._animalTypesInAviaryForPrint[Counter]+RemovingPhrases[1]+self._animalNamesInAviaryForPrint[Counter]
@@ -106,21 +122,27 @@ class BaseAviary:
             if(self._IsTheNeighborRight(animalType) and self._IsAvailableSquare(animalType) and self._IsAvailableBiom(animalType)):
                 self._animalsInAviary.append(animalType)
                 self._animalsInAviaryInt+=1
+                self._square -= animalType.lifeSquare
                 self._PrintWhenAdded()
             else:
-                print(self._printWhenAddingError(animalType))
+                print(self._PrintWhenAddingError(animalType))
 
 ## ФУНКЦИЯ УДАЛЕНИЯ ЖИВОТНОГО ИЗ ВОЛЬЕРА
     def RemoveAnimalFromAviary(self, animalType):
+        self._animalsInAviary.remove(animalType)
+        self._animalsInAviaryInt-=1
+        self._square+=animalType.lifeSquare
         self._animalNamesInAviaryForPrint.remove(animalType.name)
         self._animalTypesInAviaryForPrint.remove(animalType.animalType)
-        self._animalsInAviary.remove(animalType)
         self._PrintWhenRemoved()
 
     def FeedAnimalsInAviary(self, mass=20, foodType="Бананы"):
         for animalType in self._animalsInAviary:
-            animalType.GoEat(foodMass=mass, foodType=foodType)
-            self._foodTank-=mass
+            if(self._foodTank>0):
+                animalType.GoEat(foodMass=mass, foodType=foodType)
+                self._foodTank-=mass
+            else:
+                print("Не осталось еды в вольере!")
 
     def AskWhoWannaEat(self):
         for animalType in self._animalsInAviary:
