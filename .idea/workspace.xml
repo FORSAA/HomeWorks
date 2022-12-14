@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d016117-863c-4d91-90fd-f77faed780b8" name="Changes" comment="Adds and Changes">
-      <change afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AviaryClasses/NewBaseAviaryClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ArcticAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AviaryClasses/ArcticAviaryClass.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/BaseAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AviaryClasses/BaseAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AnimalBaseClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AnimalBaseClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AviaryClasses/ArcticAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ArcticAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AviaryClasses/BaseAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/BaseAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AviaryClasses/NewBaseAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/NewBaseAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AviaryClasses/SavannaAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/SavannaAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ElefantClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ElefantClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ImportAllClasses.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ImportAllClasses.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/SavannaAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/AviaryClasses/SavannaAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +27,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="MainBranch" />
+      </list>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -35,17 +45,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/МаксимГ!/ZakharovEgor/HomeWorks"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/МаксимГ!/ZakharovEgor/HomeWorks&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\МаксимГ!\ZakharovEgor\HomeWorks\ClassesUpdated(By Egor)\AviaryClasses" />
       <recent name="E:\GitHub\HomeWorks\ClassesUpdated(By Egor)" />
+      <recent name="E:\GitHub\HomeWorks\ClassesUpdated(By Egor)\AviaryClasses" />
+      <recent name="E:\GitHub\HomeWorks\ClassesUpdated(By Egor)\AnimalClasses" />
+      <recent name="C:\Users\МаксимГ!\ZakharovEgor\HomeWorks\ClassesUpdated(By Egor)\AviaryClasses" />
       <recent name="E:\GitHub\HomeWorks\ClassesUpdated(By Egor)\Directory" />
     </key>
   </component>

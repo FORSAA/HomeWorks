@@ -18,8 +18,6 @@ class BaseAnimal:
 
         self._biom = "   "
 
-    """GETTERS"""
-
     @property
     def animalType(self):
         return self._animalType
@@ -61,16 +59,13 @@ class BaseAnimal:
     def foodPerDay(self):
         return self._foodPerDay
 
-
-    """SETTERS"""
     @age.setter
     def age(self, age):
         if(age>0):
             self._age = age
 
-    @property
     def DoSound(self):
-        print(f"{self._sound}")
+        print(f"{self.name} сказал: {self._sound}")
 
     def GoEat(self, foodType="Бананы", foodMass=10):
         counter = 0

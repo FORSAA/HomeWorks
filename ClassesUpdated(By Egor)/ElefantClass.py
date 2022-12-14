@@ -1,4 +1,4 @@
-from AnimalBaseClass import BaseAnimal
+from AnimalBaseClass import *
 
 class ElefantClass(BaseAnimal):
 

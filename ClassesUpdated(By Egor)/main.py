@@ -31,26 +31,28 @@ else:
     print("Хочет есть")
 
 print(FirstMyNewElefant.biom)
-
+print("\n")
 FirstMyNewElefant.GoEat(foodType="Мясо", foodMass=50)
 print("\n")
-
-Aviary=SavannaAviary(name="1", canContainPredator=True)
-
-Aviary.aviarySquare = 40
-print("Площадь вольера: ", Aviary.aviarySquare, "m²", sep="")
+# FirstMyNewElefant.GoEat(foodType="Бананы", foodMass=50)
 print("\n")
-Aviary.maxAnimalsInAviary = 5
-
-Aviary.AddAnimalToAviary(FirstMyNewElefant)
+NewAviary = SavannaAviary(AviaryName="Вольер1", biom="Саванна")
+print(f"{NewAviary.aviaryName} был успешно создан")
+NewAviary.maxAnimalsInAviary = 5
+NewAviary.square = 50
 print("\n")
-Aviary.AddAnimalToAviary(SecondMyNewElefant)
+NewAviary.AddAnimalToAviary(FirstMyNewElefant)
 print("\n")
-Aviary.AddAnimalToAviary(ThirdMyNewElefant)
+NewAviary.AskWhoWannaEat()
 print("\n")
-
-Aviary.AddAnimalToAviary(FirstMyNewTiger)
+NewAviary.FeedAnimalsInAviary()
 print("\n")
-Aviary.AskWhoWannaEat
-Aviary.FeedAnimalsInAviary(20)
-Aviary.AskWhoWannaEat
+NewAviary.AskWhoWannaEat()
+print("\n")
+NewAviary.AnimalsDoSound()
+print("\n")
+NewAviary.AddAnimalToAviary(FirstMyNewTiger)
+print("\n")
+NewAviary.RemoveAnimalFromAviary(FirstMyNewElefant)
+print("\n")
+print(NewAviary.animalsInAviary)
