@@ -1,18 +1,22 @@
 
 class BaseAviary:
 
-    def __init__(self, AviaryName, biom):
+    def __init__(self, AviaryName):
         self._aviaryName = AviaryName
-        self._biom = biom
+        self._biom = ""
         self._square = 0
         self._animalsInAviary = []
         self._animalsInAviaryInt = 0
         self._foodTank = 0
+        self._foodTankMax = 400
         self._maxAnimalsInAviary = 0
         self._animalTypesInAviaryForPrint = []
         self._animalNamesInAviaryForPrint = []
         print(f"Вольер с именем {AviaryName} был успешно создан.")
 
+    @property
+    def animalsInAviaryInt(self):
+        return self._animalsInAviaryInt
     @property
     def aviaryName(self):
         return self._aviaryName
@@ -21,8 +25,11 @@ class BaseAviary:
         return self._foodTank
     @foodTank.setter
     def foodTank(self, foodTank):
-        if(foodTank<=400 and foodTank>0):
+        if(foodTank<=self._foodTankMax and foodTank>0):
             self._foodTank = foodTank
+    @property
+    def foodTankMax(self):
+        return self._foodTankMax
     @property
     def biom(self):
         return self._biom
@@ -51,15 +58,12 @@ class BaseAviary:
         return self._animalNamesInAviaryForPrint
 
     def _PrintWhenAddingError(self, animalType):
-        return(f"Животное {animalType.animalType} не было добавлено.\n1.Подходит ли сосед? {self._IsTheNeighborRight(animalType)}\n2.Подходит ли биом? {self._IsAvailableBiom(animalType)} ({self._biom}/{animalType.biom})\n3.Хватает ли площади? {self._IsAvailableSquare(animalType)} ({animalType.lifeSquare}/{self._square})")
+        return(f"Животное {animalType.animalType} не было добавлено.\n1.Подходит ли сосед? {self._IsTheNeighborRight(animalType)}\n2.Подходит ли биом? {self._IsAvailableBiom(animalType)} ({self._biom}/{animalType.biom})\n3.Хватает ли площади? {self._IsAvailableSquare(animalType)} ({animalType.lifeSquare}/{self._square})\n4.Много ли животных?({self._animalsInAviaryInt}/{self._maxAnimalsInAviary})")
     def _IsTheNeighborRight(self, animalType):
-        if(animalType.isPredator and self._animalsInAviary[0].animalType==animalType.animalType):
-            return True
-        elif(animalType.isPredator!=self._animalsInAviary[0].isPredator):
+        if(animalType.isPredator!=self._animalsInAviary[0].isPredator):
             return False
         else:
-            return False
-
+            return True
     def _IsAvailableSquare(self, animalType):
         if(self._square>=animalType.lifeSquare):
             return True
@@ -70,6 +74,14 @@ class BaseAviary:
         if(self._biom==animalType.biom):
             return True
         else:
+            return False
+    @property
+    def _IsAvailablePlace(self):
+        if(self._animalsInAviaryInt+1<=self._maxAnimalsInAviary):
+            # print("1")
+            return True
+        else:
+            # print("2")
             return False
 
     def _PrintWhenAdded(self):
@@ -111,30 +123,40 @@ class BaseAviary:
         else:
             print(f"Вы удалили последнее животное! Теперь в вольере {self._aviaryName} не осталось животных.")
 
+
 ## ФУНКЦИЯ ДОБАВЛЕНИЯ ЖИВОТНОГО В ВОЛЬЕР
     def AddAnimalToAviary(self, animalType):
-        if(len(self._animalsInAviary)==0 and self._IsAvailableSquare(animalType) and self._IsAvailableBiom(animalType)):
+        if(self._animalsInAviaryInt==0 and self._IsAvailableSquare(animalType) and self._IsAvailableBiom(animalType)):
             self._animalsInAviary.append(animalType)
             self._animalsInAviaryInt+=1
             self._square-=animalType.lifeSquare
             self._PrintWhenAdded()
+            # return True
         else:
-            if(self._IsTheNeighborRight(animalType) and self._IsAvailableSquare(animalType) and self._IsAvailableBiom(animalType)):
+            if(self._IsTheNeighborRight(animalType) and self._IsAvailableSquare(animalType) and self._IsAvailableBiom(animalType) and self._IsAvailablePlace):
                 self._animalsInAviary.append(animalType)
                 self._animalsInAviaryInt+=1
                 self._square -= animalType.lifeSquare
                 self._PrintWhenAdded()
+                # return True
             else:
                 print(self._PrintWhenAddingError(animalType))
+                # return False
 
 ## ФУНКЦИЯ УДАЛЕНИЯ ЖИВОТНОГО ИЗ ВОЛЬЕРА
+    def _RemovingErrorPrint(self, animalType):
+        print(f"Ошибка! Невозможно удалить животное {animalType.animalType}! Объект не найден в вольере!")
     def RemoveAnimalFromAviary(self, animalType):
-        self._animalsInAviary.remove(animalType)
-        self._animalsInAviaryInt-=1
-        self._square+=animalType.lifeSquare
-        self._animalNamesInAviaryForPrint.remove(animalType.name)
-        self._animalTypesInAviaryForPrint.remove(animalType.animalType)
-        self._PrintWhenRemoved()
+        try:
+            self._animalsInAviary.remove(animalType)
+            self._animalsInAviaryInt-=1
+            self._square+=animalType.lifeSquare
+            self._animalNamesInAviaryForPrint.remove(animalType.name)
+            self._animalTypesInAviaryForPrint.remove(animalType.animalType)
+            self._PrintWhenRemoved()
+            return True
+        except ValueError:
+            return False
 
     def FeedAnimalsInAviary(self, mass=20, foodType="Бананы"):
         for animalType in self._animalsInAviary:

@@ -1,5 +1,6 @@
 #Файл нужен для разового импорта всех будующих и уже существующих классов
 #Пример:
+from ZooBaseClass import *
 
 from NewBaseAviaryClass import *
 from ArcticAviaryClass import *

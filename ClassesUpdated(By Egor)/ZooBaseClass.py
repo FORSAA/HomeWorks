@@ -56,6 +56,18 @@ class BaseZooClass(BaseAviary):
         else:
             print(f"Не удалось добавить вольер в зоопарк {self._zooName}! Не хватает места для вольера!({self._zooSquare}m²/{aviary.square}m²)")
 
+    def _TransferSucceflyPrint(self, animalType, aviary1From, aviary2To):
+        print(f"Перемещение успешно! {animalType.animalType} {animalType.name} перемещен из вольера {aviary1From.aviaryName} в вольер {aviary2To.aviaryName}!")
+    def _TransferErrorPrint(self, animalType, aviary1From, aviary2To):
+        print(f"Перемещение не удалось! {animalType.animalType} {animalType.name} не перемещен из вольера {aviary1From.aviaryName} в вольер {aviary2To.aviaryName}!")
+    def _CheckAnimalInAviaryBeforeRemove(self, animalType, aviaryForCheck):
+        for i in aviaryForCheck._animalsInAviary:
+            if(i==animalType):
+                return True
+            else:
+                return False
+
+
     def TransferAnimalBetweenAviaries(self, animalType, aviary1From, aviary2To):
         TestVar1 = 0
         TestVar2 = 0
@@ -64,13 +76,21 @@ class BaseZooClass(BaseAviary):
                 TestVar1 = i.maxAnimalsInAviary
             elif(i==aviary2To):
                 TestVar2 = i.maxAnimalsInAviary
-        if(TestVar2+1<=TestVar2):
-            if(aviary2To.animalsInAviaryInt==0 and aviary2To._IsAvailableBiom(animalType) and aviary2To.IsAvailableSquare(animalType)):
-                aviary1From.RemoveAnimalFromAviary(animalType)
-                aviary2To.AddAnimalToAviary(animalType)
-            elif(aviary2To._IsAvailableBiom(animalType)):
 
+        if(self._CheckAnimalInAviaryBeforeRemove(animalType, aviary1From) and aviary2To._IsAvailablePlace and aviary2To._IsAvailableBiom(animalType) and aviary2To._IsAvailableSquare(animalType) and aviary2To._IsTheNeighborRight(animalType)):
+            self._TransferSucceflyPrint(animalType, aviary1From, aviary2To)
+            print("\n")
+            aviary1From.RemoveAnimalFromAviary(animalType)
+            print("\n")
+            aviary2To.AddAnimalToAviary(animalType)
+        else:
+            self._TransferErrorPrint(animalType, aviary1From, aviary2To)
 
-
-
-
+    def AskWhoNeedFoodForAviaries(self):
+        counter = 0
+        for i in self._aviaryList:
+            if(i.foodTank<i.foodTankMax/2):
+                print(f"Вольер {i.aviaryName} нуждается в еде!")
+                counter+=1
+        if(counter==0):
+            print("Вольерам не нужна еда.")

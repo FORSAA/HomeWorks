@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d016117-863c-4d91-90fd-f77faed780b8" name="Changes" comment="Adds and Changes">
-      <change afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ZooBaseClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ElefantClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ElefantClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/NewBaseAviaryClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/NewBaseAviaryClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ZooBaseClass.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/ZooBaseClass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassesUpdated(By Egor)/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +29,9 @@
       </list>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ClassesUpdated(By Egor)/NewBaseAviaryClass.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -41,13 +43,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/МаксимГ!/ZakharovEgor/HomeWorks&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "E:/GitHub/homework-classes",
+    "settings.editor.selected.configurable": "editor.preferences.import"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\GitHub\HomeWorks\ClassesUpdated(By Egor)" />
@@ -236,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671016780298</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Adds and Changes">
+      <created>1671047156873</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1671047156873</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
