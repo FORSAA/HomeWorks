@@ -100,7 +100,7 @@ def DebugAviaryClass():
     TestSavannaAviary.AddAnimalToAviary(FourthTestAnimal)
     print("\n")
 
-def ZooDebug():
+def ZooClassDebug():
     print("-------ПРОВЕРКА ФУНКЦИЙ ЗООПАРКА---------")
     FirstTestAnimal = ElefantClass("Степан")
     SecondTestAnimal = ElefantClass("Алексей")
@@ -109,9 +109,7 @@ def ZooDebug():
 
     print("\n")
     FirstTestSavannaAviary = SavannaAviary("Вольер 1")
-    print("\n")
     SecondTestSavannaAviary = SavannaAviary("Вольер 2")
-    print("\n")
     TestArcticAviary = SavannaAviary("Вольер 3")
     print("\n")
 
@@ -131,16 +129,42 @@ def ZooDebug():
 
     FirstTestSavannaAviary.AddAnimalToAviary(ThirdTestAnimal)
     SecondTestSavannaAviary.AddAnimalToAviary(SecondTestAnimal)
-
-    TestZoo.AddAviaryToZoo(FirstTestSavannaAviary)
     print("\n")
+    TestZoo.AddAviaryToZoo(FirstTestSavannaAviary)
     TestZoo.AddAviaryToZoo(SecondTestSavannaAviary)
     print("\n")
-    # print("Список вольеров в зоопарке", TestZoo.aviaryList)
-    print("Имя зоопарка", TestZoo.zooName)
+    print("Список вольеров в зоопарке:", TestZoo.aviaryList)
+    print("Имя зоопарка:", TestZoo.zooName)
+    print("\n")
+
+    print("-------ПЕРЕНОС ЖИВОТНЫХ И ПРОВЕРКА ФУНКЦИЙ ВОЛЬЕРОВ В ЗООПАРКЕ-------")
+    print("\n")
+    print(FirstTestSavannaAviary.animalTypesInAviaryForPrint)
+    print(SecondTestSavannaAviary.animalTypesInAviaryForPrint)
     print("\n")
     TestZoo.TransferAnimalBetweenAviaries(FirstTestSavannaAviary.animalsInAviary[0], FirstTestSavannaAviary, SecondTestSavannaAviary)
     print("\n")
     TestZoo.AskWhoNeedFoodForAviaries()
+    print("\n")
+    FirstTestSavannaAviary.RemoveAnimalFromAviary(ThirdTestAnimal)
+    print("\n")
+    TestZoo.TransferAnimalBetweenAviaries(SecondTestSavannaAviary.animalsInAviary[0], SecondTestSavannaAviary, FirstTestSavannaAviary)
+    print("\n")
+    print(FirstTestSavannaAviary.animalTypesInAviaryForPrint)
+    print(SecondTestSavannaAviary.animalTypesInAviaryForPrint)
 
-ZooDebug()
+counter = 0
+while(True):
+    if(counter>0):
+        print("----------------------------")
+    print("1.Проверка классов животных\n2.Проверка классов вольеров\n3.Проверка классов зоопарка")
+    StartDebug = int(input("Тип проверки: "))
+    if(StartDebug==1):
+        DebugAnimalClass()
+    elif(StartDebug==2):
+        DebugAviaryClass()
+    elif(StartDebug==3):
+        ZooClassDebug()
+    else:
+        "Значения только от 1-ого до 3-ёх"
+    counter+=1

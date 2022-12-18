@@ -60,9 +60,12 @@ class BaseAviary:
     def _PrintWhenAddingError(self, animalType):
         return(f"Животное {animalType.animalType} не было добавлено.\n1.Подходит ли сосед? {self._IsTheNeighborRight(animalType)}\n2.Подходит ли биом? {self._IsAvailableBiom(animalType)} ({self._biom}/{animalType.biom})\n3.Хватает ли площади? {self._IsAvailableSquare(animalType)} ({animalType.lifeSquare}/{self._square})\n4.Много ли животных?({self._animalsInAviaryInt}/{self._maxAnimalsInAviary})")
     def _IsTheNeighborRight(self, animalType):
-        if(animalType.isPredator!=self._animalsInAviary[0].isPredator):
-            return False
-        else:
+        try:
+            if(animalType.isPredator!=self._animalsInAviary[0].isPredator):
+                return False
+            else:
+                return True
+        except IndexError:
             return True
     def _IsAvailableSquare(self, animalType):
         if(self._square>=animalType.lifeSquare):
@@ -78,10 +81,10 @@ class BaseAviary:
     @property
     def _IsAvailablePlace(self):
         if(self._animalsInAviaryInt+1<=self._maxAnimalsInAviary):
-            # print("1")
+            print(f"В вольере {self.aviaryName} место есть")
             return True
         else:
-            # print("2")
+            print(f"В вольере {self.aviaryName} места нет")
             return False
 
     def _PrintWhenAdded(self):
