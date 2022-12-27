@@ -40,6 +40,8 @@ class BaseAviary:
     def square(self, square):
         if(square>0 and square<=50):
             self._square = square
+        else:
+            print("Минимум-1м², Максимум-50м²")
     @property
     def animalsInAviary(self):
         return self._animalsInAviary
@@ -50,6 +52,8 @@ class BaseAviary:
     def maxAnimalsInAviary(self, maxAnimalsInAviary):
         if(maxAnimalsInAviary>0 and maxAnimalsInAviary<=5):
             self._maxAnimalsInAviary = maxAnimalsInAviary
+        else:
+            print("Максимум 5 животных!")
     @property
     def animalTypesInAviaryForPrint(self):
         return self._animalTypesInAviaryForPrint
@@ -81,10 +85,10 @@ class BaseAviary:
     @property
     def _IsAvailablePlace(self):
         if(self._animalsInAviaryInt+1<=self._maxAnimalsInAviary):
-            print(f"В вольере {self.aviaryName} место есть")
+            # print(f"В вольере {self.aviaryName} место есть")
             return True
         else:
-            print(f"В вольере {self.aviaryName} места нет")
+            # print(f"В вольере {self.aviaryName} места нет")
             return False
 
     def _PrintWhenAdded(self):
@@ -129,22 +133,22 @@ class BaseAviary:
 
 ## ФУНКЦИЯ ДОБАВЛЕНИЯ ЖИВОТНОГО В ВОЛЬЕР
     def AddAnimalToAviary(self, animalType):
-        if(self._animalsInAviaryInt==0 and self._IsAvailableSquare(animalType) and self._IsAvailableBiom(animalType)):
+        if(self._animalsInAviaryInt==0 and self._IsAvailableSquare(animalType) and self._IsAvailableBiom(animalType) and self._IsAvailablePlace):
             self._animalsInAviary.append(animalType)
             self._animalsInAviaryInt+=1
             self._square-=animalType.lifeSquare
             self._PrintWhenAdded()
-            # return True
+            return True
         else:
             if(self._IsTheNeighborRight(animalType) and self._IsAvailableSquare(animalType) and self._IsAvailableBiom(animalType) and self._IsAvailablePlace):
                 self._animalsInAviary.append(animalType)
                 self._animalsInAviaryInt+=1
                 self._square -= animalType.lifeSquare
                 self._PrintWhenAdded()
-                # return True
+                return True
             else:
                 print(self._PrintWhenAddingError(animalType))
-                # return False
+                return False
 
 ## ФУНКЦИЯ УДАЛЕНИЯ ЖИВОТНОГО ИЗ ВОЛЬЕРА
     def _RemovingErrorPrint(self, animalType):
@@ -159,6 +163,7 @@ class BaseAviary:
             self._PrintWhenRemoved()
             return True
         except ValueError:
+            self._RemovingErrorPrint(animalType)
             return False
 
     def FeedAnimalsInAviary(self, mass=20, foodType="Бананы"):
